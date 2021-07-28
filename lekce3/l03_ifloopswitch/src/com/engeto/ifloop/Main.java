@@ -156,5 +156,6 @@ public class Main {
         // ---
         System.out.println("--- Task 7 - print integers - replace: 1 => \"one\", 2 => \"two\", 3 => \"three\" ---");
         printIntegersWithReplace(list);
+        System.out.println("End Of homework");
     }
 }
