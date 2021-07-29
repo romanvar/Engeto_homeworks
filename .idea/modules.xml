@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Engeto_homeworks.iml" filepath="$PROJECT_DIR$/.idea/Engeto_homeworks.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lekce3/FizzBuzz/FizzBuzz.iml" filepath="$PROJECT_DIR$/lekce3/FizzBuzz/FizzBuzz.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lekce3/l03_ifloopswitch/l03_ifloopswitch.iml" filepath="$PROJECT_DIR$/lekce3/l03_ifloopswitch/l03_ifloopswitch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lesson2Homework/lesson2Homework.iml" filepath="$PROJECT_DIR$/lesson2Homework/lesson2Homework.iml" />
+    </modules>
+  </component>
+</project>
