@@ -67,7 +67,11 @@ public class Flower {
         return lastWatering;
     }
 
-    public void setLastWatering( LocalDate lastWatering ) {
+    public void setLastWatering( LocalDate lastWatering ) throws PlantException {
+//        if (lastWatering < this.getPlanted())
+        if (lastWatering.isBefore(this.getPlanted())) {
+            throw new PlantException("Datum zalivky "+lastWatering+" nemuze byt starsi nez datum sazeni " + this.getPlanted());
+        }
         this.lastWatering = lastWatering;
     }
 
