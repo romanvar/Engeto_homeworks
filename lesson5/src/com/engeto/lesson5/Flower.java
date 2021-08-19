@@ -1,5 +1,4 @@
-package com.engeto.lesson3.homework;
-
+package com.engeto.lesson5;
 import java.time.LocalDate;
 
 
@@ -19,7 +18,7 @@ public class Flower {
 
     public Flower( String notes ,  LocalDate lastWatering  ) throws PlantException {
 
-            this(LocalDate.now(), 7);
+        this(LocalDate.now(), 7);
 
         this.notes = "";
         this.lastWatering = lastWatering;
