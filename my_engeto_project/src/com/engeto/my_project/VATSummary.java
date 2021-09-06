@@ -21,8 +21,8 @@ public class VATSummary {
 
                 BigDecimal fullVAT_dot = BigDecimal.valueOf(Double.valueOf(items[2].replace(',','.')));
                 BigDecimal reducedVAT_dot = BigDecimal.valueOf(Double.valueOf(items[3].replace(',','.')));
-                Boolean specialVAT = Boolean.parseBoolean(items[4]);
-                VAT vat = new VAT(items[0],items[1],fullVAT_dot,reducedVAT_dot, specialVAT);
+                boolean specialVAT_bol = Boolean.parseBoolean(items[4]);
+                VAT vat = new VAT(items[0],items[1],fullVAT_dot,reducedVAT_dot, specialVAT_bol);
                 vatSummary.add(vat);
 
             }
