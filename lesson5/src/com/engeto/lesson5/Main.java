@@ -19,27 +19,27 @@ public class Main {
             flower3 = new Flower("Pampeliska");
             System.out.println(flower1.getWateringInfo());
             flower1.setLastWatering(LocalDate.now());
-            System.out.println("Datum sazeni "+flower1.getPlanted());
-          //  Flowers.addFlower(flower1);
+            System.out.println("Datum sazeni " + flower1.getPlanted());
+            //  Flowers.addFlower(flower1);
         } catch (PlantException e) {
             e.printStackTrace();
         }
         Flowers flowers = new Flowers();
         flowers.addFlower(flower1);
-        try{
+        try {
             flowers = Flowers.importFromTextFile(INPUTFILENAME);
             flowers.addFlower(flower1);
             flowers.addFlower(flower2);
             flowers.removeFlower(flower1);
             flowers.addFlower(flower3);
 
-        }catch (PlantException e){
+        } catch (PlantException e) {
             e.printStackTrace();
         }
 
-        try{
+        try {
             flowers.exportToFile(OUTPUTFILENAME);
-        }catch (PlantException e){
+        } catch (PlantException e) {
             e.printStackTrace();
         }
 

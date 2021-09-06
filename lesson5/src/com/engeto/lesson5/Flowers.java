@@ -19,7 +19,7 @@ public class Flowers {
         try (Scanner scanner = new Scanner(new FileInputStream(filename))) {
             while (scanner.hasNextLine()) {
                 String inputline = scanner.nextLine();
-               // System.out.println("Byla nactena jedna radka "+inputline);
+                // System.out.println("Byla nactena jedna radka "+inputline);
                 String[] items = inputline.split(DELIMITER);
                 if (items.length != 5)
                     throw new PlantException("Nespravny pocet polozek na radku: " + inputline + " (" + items.length + " položek)"
@@ -28,7 +28,7 @@ public class Flowers {
                 LocalDate parsedDatePlanted = LocalDate.parse(items[4], formatter);
                 LocalDate parsedDateLastWatering = LocalDate.parse(items[3], formatter);
                 int i = Integer.parseInt(items[2]);
-                System.out.println(" datum zalivky je: "+items[4]);
+                System.out.println(" datum zalivky je: " + items[4]);
 
                 //Flower flower = new Flower(items[0], items[1], parsedDatePlanted, parsedDateLastWatering, i);
                 flowers.addFlower(new Flower(items[0], items[1], parsedDatePlanted, parsedDateLastWatering, i));
@@ -36,7 +36,7 @@ public class Flowers {
             }
 
         } catch (FileNotFoundException ex) {
-            throw new PlantException("Soubor " + filename + " nenalezen "  + ex.getLocalizedMessage());
+            throw new PlantException("Soubor " + filename + " nenalezen " + ex.getLocalizedMessage());
         } catch (Exception ex) {
             throw new PlantException("Some Exception: " + ex.getLocalizedMessage());
         }
@@ -46,12 +46,13 @@ public class Flowers {
     }
 
     public void exportToFile(String filename) throws PlantException {
+        
         try (PrintWriter writer = new PrintWriter(new FileOutputStream(filename))) {
             for (Flower flower : listFlowers) {
                 writer.println(
                         flower.getName() + DELIMITER
                                 + flower.getNotes() + DELIMITER
-                                + flower.getFrequencyOfWatering()+DELIMITER
+                                + flower.getFrequencyOfWatering() + DELIMITER
                                 + flower.getLastWatering() + DELIMITER
                                 + flower.getPlanted() + DELIMITER
 

@@ -1,4 +1,5 @@
 package com.engeto.lesson5;
+
 import java.time.LocalDate;
 
 
@@ -7,7 +8,7 @@ public class Flower {
     private LocalDate planted, lastWatering;
     private int frequencyOfWatering;
 
-    public Flower( String name, String notes, LocalDate planted, LocalDate lastWatering, int frequencyOfWatering ) {
+    public Flower(String name, String notes, LocalDate planted, LocalDate lastWatering, int frequencyOfWatering) {
 //        this(notes, planted, lastWatering, frequencyOfWatering);
         this.name = name;
         this.notes = notes;
@@ -16,7 +17,7 @@ public class Flower {
         this.frequencyOfWatering = frequencyOfWatering;
     }
 
-    public Flower( String notes ,  LocalDate lastWatering  ) throws PlantException {
+    public Flower(String notes, LocalDate lastWatering) throws PlantException {
 
         this(LocalDate.now(), 7);
 
@@ -24,15 +25,16 @@ public class Flower {
         this.lastWatering = lastWatering;
     }
 
-    public Flower( LocalDate planted , int frequencyOfWatering ) throws PlantException {
+    public Flower(LocalDate planted, int frequencyOfWatering) throws PlantException {
         this.planted = planted;
-        if(frequencyOfWatering < 1 ){
-            throw new PlantException("Frekvence zalivky musi byt kladne cislo, toto je spatne: "+frequencyOfWatering);
+        if (frequencyOfWatering < 1) {
+            throw new PlantException("Frekvence zalivky musi byt kladne cislo, toto je spatne: " + frequencyOfWatering);
         }
         this.frequencyOfWatering = frequencyOfWatering;
 
     }
-    public Flower (String name) throws PlantException {
+
+    public Flower(String name) throws PlantException {
 
         this("", LocalDate.now());
         this.name = name;
@@ -42,7 +44,7 @@ public class Flower {
         return name;
     }
 
-    public void setName( String name ) {
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -50,7 +52,7 @@ public class Flower {
         return notes;
     }
 
-    public void setNotes( String notes ) {
+    public void setNotes(String notes) {
         this.notes = notes;
     }
 
@@ -58,7 +60,7 @@ public class Flower {
         return planted;
     }
 
-    public void setPlanted( LocalDate planted ) {
+    public void setPlanted(LocalDate planted) {
         this.planted = planted;
     }
 
@@ -66,10 +68,10 @@ public class Flower {
         return lastWatering;
     }
 
-    public void setLastWatering( LocalDate lastWatering ) throws PlantException {
+    public void setLastWatering(LocalDate lastWatering) throws PlantException {
 //        if (lastWatering < this.getPlanted())
         if (lastWatering.isBefore(this.getPlanted())) {
-            throw new PlantException("Datum zalivky "+lastWatering+" nemuze byt starsi nez datum sazeni " + this.getPlanted());
+            throw new PlantException("Datum zalivky " + lastWatering + " nemuze byt starsi nez datum sazeni " + this.getPlanted());
         }
         this.lastWatering = lastWatering;
     }
@@ -78,13 +80,14 @@ public class Flower {
         return frequencyOfWatering;
     }
 
-    public void setFrequencyOfWatering( int frequencyOfWatering ) {
+    public void setFrequencyOfWatering(int frequencyOfWatering) {
         this.frequencyOfWatering = frequencyOfWatering;
     }
-    public String getWateringInfo(){
+
+    public String getWateringInfo() {
         LocalDate nextRecommendedWatering = this.lastWatering.plusDays(this.frequencyOfWatering);
-        String pom = "Name: "+this.name+"\nlast watering: "+this.lastWatering.toString()
-                +"\nRecommended date of next watering is: "+nextRecommendedWatering.toString();
+        String pom = "Name: " + this.name + "\nlast watering: " + this.lastWatering.toString()
+                + "\nRecommended date of next watering is: " + nextRecommendedWatering.toString();
 
         return pom;
     }

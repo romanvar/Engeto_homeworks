@@ -17,4 +17,24 @@ public class VAT {
         this.reducedVAT = reducedVAT;
         this.specialVAT = specialVAT;
     }
+
+    public String getStateShortcut() {
+        return stateShortcut;
+    }
+
+    public String getStateName() {
+        return stateName;
+    }
+
+    public BigDecimal getFullVAT() {
+        return fullVAT;
+    }
+
+    public BigDecimal getReducedVAT() {
+        return reducedVAT;
+    }
+
+    public boolean isSpecialVAT() {
+        return specialVAT;
+    }
 }
