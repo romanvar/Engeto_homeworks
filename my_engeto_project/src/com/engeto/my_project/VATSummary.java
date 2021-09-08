@@ -18,12 +18,16 @@ public class VATSummary {
                 String inputLine = scanner.nextLine();
                 String[] items = inputLine.split(DELIMITER);
                 if (items.length != 5) throw new VATException("Nesprávný počet položek na řádku: "+inputLine+" ("+items.length+" položek)");
-
-                BigDecimal fullVAT_dot = BigDecimal.valueOf(Double.valueOf(items[2].replace(',','.')));
-                BigDecimal reducedVAT_dot = BigDecimal.valueOf(Double.valueOf(items[3].replace(',','.')));
+                char oldChar = ',';
+                char newChar = '.';
+                BigDecimal fullVAT_dot = BigDecimal.valueOf(Double.valueOf(items[2].replace(oldChar,newChar)));
+                BigDecimal reducedVAT_dot = BigDecimal.valueOf(Double.valueOf(items[3].replace(oldChar,newChar)));
                 boolean specialVAT_bol = Boolean.parseBoolean(items[4]);
                 VAT vat = new VAT(items[0],items[1],fullVAT_dot,reducedVAT_dot, specialVAT_bol);
+//              System.out.println(vat.getStateShortcut()+" "+vat.getStateName()+" "+vat.getFullVAT()+" "+vat.getReducedVAT()+" "+vat.isSpecialVAT());
                 vatSummary.add(vat);
+//                vatSummary.add(new VAT(items[0],items[1],fullVAT_dot,reducedVAT_dot, specialVAT_bol));
+                System.out.println(vatSummary);
 
             }
 
@@ -31,7 +35,7 @@ public class VATSummary {
             throw new VATException("Soubor " + filename + " nenalezen " + e.getLocalizedMessage());
         }
 
-        return null;
+        return vatSummary;
     }
 
     private void add(VAT e) {

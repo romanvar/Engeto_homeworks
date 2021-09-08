@@ -12,7 +12,7 @@ public class Main {
             System.err.println("Nepodařilo se načíst data ze souboru "+FILENAME+": "+e.getMessage());
         }
         //VATSummary.
-       // vatSummary.printVats();
+       vatSummary.printVats();
 
 
     }
