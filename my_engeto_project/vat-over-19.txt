@@ -18,8 +18,5 @@ France	(FR)	20.0 %
 Romania	(RO)	20.0 %
 Slovakia	(SK)	20.0 %
 United Kingdom	(GB)	20.0 %
-Cyprus	(CY)	19.0 %
-Germany	(DE)	19.0 %
-Malta	(MT)	18.0 %
 ==================
-Sazba VAT 5 % nebo nižší nebo používají speciální sazbu: IE, PT, BE, AT, LU
+Sazba VAT 19 % nebo nižší nebo používají speciální sazbu: IE, PT, BE, AT, CY, DE, MT, LU
