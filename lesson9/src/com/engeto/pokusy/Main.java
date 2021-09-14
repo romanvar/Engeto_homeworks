@@ -2,7 +2,7 @@ package com.engeto.pokusy;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 	for (int i = 1; i<10 ; i++){
 //        Fork
     }
@@ -26,7 +26,7 @@ public class Main {
         Philosopher philosopher7 = new Philosopher("Philosopher7", fork7,fork8);
         Philosopher philosopher8 = new Philosopher("Philosopher8", fork8,fork9);
         Philosopher philosopher9 = new Philosopher("Philosopher9", fork9,fork10);
-        Philosopher philosopher10 = new Philosopher("Philosopher10", fork10,fork1);
+        Philosopher philosopher10 = new Philosopher("Philosopher10", fork1,fork10);
 
 
             philosopher1.start();
@@ -39,6 +39,7 @@ public class Main {
             philosopher8.start();
             philosopher9.start();
             philosopher10.start();
+
         }
 
 
