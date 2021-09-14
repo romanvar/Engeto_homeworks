@@ -1,9 +1,13 @@
 package com.engeto.pokusy;
 
+import java.util.concurrent.locks.ReentrantLock;
+
 public class Philosopher extends Thread {
+
     String namePhilosopher;
     Fork leftHandFork;
     Fork rightHandFork;
+
 
     public Philosopher(String namePhilosopher, Fork leftHandFork, Fork rightHandFork) {
         this.namePhilosopher = namePhilosopher;
@@ -15,20 +19,22 @@ public class Philosopher extends Thread {
     @Override
     public void run() {
 
+
         for (int i = 1; i < 10000; i++) {
 
-            synchronized (this) {
-                leftHandFork.lock();
-                System.out.println(namePhilosopher + " has held " + leftHandFork.number + " in his left hand. in cycle " + i);
 
+            if (leftHandFork.pickUp()) {
 
-                rightHandFork.lock();
-                System.out.println(namePhilosopher + " has held " + rightHandFork.number + " in his right hand. in cycle " + i);
-
+                if (rightHandFork.pickUp()) {
+                    System.out.println(namePhilosopher + " has held " + leftHandFork.number + " in his left hand and "
+                            + rightHandFork.number + " in his right hand in cycle " + i);
+                }
             }
-            leftHandFork.unlock();
-            rightHandFork.unlock();
+            leftHandFork.putDown();
+            rightHandFork.putDown();
 
         }
+
     }
 }
+
