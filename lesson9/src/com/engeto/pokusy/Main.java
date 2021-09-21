@@ -39,7 +39,7 @@ public class Main {
         philosopher8.start();
         philosopher9.start();
         philosopher10.start();
-        System.out.println("Nejaky libovolny text, ktery se mi v konzoli nevypise - to bych se z toho ....");
+
     }
 
 
