@@ -8,6 +8,7 @@ public class Philosopher extends Thread {
     private Fork leftHandFork;
     private Fork rightHandFork;
     private Integer portionsEated;
+    private static final Integer PORTIONS = 10000;
 
 
     public Philosopher(String namePhilosopher, Fork leftHandFork, Fork rightHandFork) {
@@ -25,7 +26,7 @@ public class Philosopher extends Thread {
 //        for (int i = 1; i < 10000; i++) {
 //        int i = 1;
 //        while (i < 10001) {
-        while (this.portionsEated < 10001) {
+        while (this.portionsEated.compareTo(PORTIONS) != 0) {
 
             synchronized (this) {
                 if (leftHandFork.pickUp()) {
