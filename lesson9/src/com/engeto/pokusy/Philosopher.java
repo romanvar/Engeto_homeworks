@@ -21,26 +21,21 @@ public class Philosopher extends Thread {
     @Override
     public void  run() {
 
-eatNow();
+
+
 //        for (int i = 1; i < 10000; i++) {
 //        int i = 1;
 //        while (i < 10001) {
-
-
-    }
-
-    private synchronized void eatNow() {
-
         while (this.portionsEated <10001){
 
             synchronized(this){
-            if (leftHandFork.pickUp()) {
+                if (leftHandFork.pickUp()) {
 
-                if (rightHandFork.pickUp()) {
-                    System.out.println(namePhilosopher + " has held " + leftHandFork.number + " in his left hand and "
-                            + rightHandFork.number + " in his right hand in cycle " + this.portionsEated);
+                    if (rightHandFork.pickUp()) {
+                        System.out.println(namePhilosopher + " has held " + leftHandFork.number + " in his left hand and "
+                                + rightHandFork.number + " in his right hand in cycle " + this.portionsEated);
 
-                    this.portionsEated++;
+                        this.portionsEated++;
                     }
                 }
             }
@@ -49,6 +44,11 @@ eatNow();
 
 
         }
+
+
     }
+
+
+
 }
 
