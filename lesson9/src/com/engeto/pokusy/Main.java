@@ -4,7 +4,7 @@ public class Main {
 
     public static void main(String[] args) throws InterruptedException {
         for (int i = 1; i < 10; i++) {
-//        Fork
+//        Fork fork
         }
         Fork fork1 = new Fork(1);
         Fork fork2 = new Fork(2);
