@@ -1,6 +1,7 @@
 package com.engeto.pokusy;
 
 import java.math.BigDecimal;
+import java.sql.SQLException;
 import java.util.List;
 
 public interface GoodsMethods {
@@ -9,7 +10,7 @@ public interface GoodsMethods {
      * @param id - id of the item which we want to load
      * @return
      */
-    Item loadItemById(Integer id);
+    Item loadItemById(Integer id) throws SQLException;
 
     /**
      * This method deletes all items that are not in stock
