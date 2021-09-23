@@ -15,6 +15,7 @@ public class Main {
             System.out.println("Description je: "+resultSet.getNString("description"));
         System.out.println("Cena je:" + resultSet.getBigDecimal("price"));
     }
+
         dbconnection.close();
     }
 }
