@@ -28,17 +28,19 @@ public class Philosopher extends Thread {
 //        while (i < 10001) {
         while (this.portionsEated.compareTo(PORTIONS) != 0) {
 
-            synchronized (this) {
+
                 if (leftHandFork.pickUp()) {
 
                     if (rightHandFork.pickUp()) {
-                        System.out.println(namePhilosopher + " has held " + leftHandFork.number + " in his left hand and "
-                                + rightHandFork.number + " in his right hand in cycle " + this.portionsEated);
+                        if (this.portionsEated % 100 == 0) {
+                            System.out.println(namePhilosopher + " has held " + leftHandFork.number + " in his left hand and "
+                                    + rightHandFork.number + " in his right hand in cycle " + this.portionsEated);
+                        }
 
                         this.portionsEated++;
                     }
+
                 }
-            }
             leftHandFork.putDown();
             rightHandFork.putDown();
 
