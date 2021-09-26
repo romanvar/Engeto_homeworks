@@ -17,6 +17,19 @@ public class Item {
 
     private BigDecimal price;
 
+    public Item(Integer id, String partNo, String serialNo, String name, String description, Integer numberInStock, BigDecimal price) {
+        this.id = id;
+        this.partNo = partNo;
+        this.serialNo = serialNo;
+        this.name = name;
+        this.description = description;
+        this.numberInStock = numberInStock;
+        this.price = price;
+    }
+
+    public Item() {
+    }
+
     public Integer getId() {
         return id;
     }

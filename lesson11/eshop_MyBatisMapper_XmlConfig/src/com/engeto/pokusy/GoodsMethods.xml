@@ -1,0 +1,44 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace = "com.engeto.pokusy.GoodsMethods">
+    <resultMap id="my_eshop" type="com.engeto.pokusy.Item">
+        <id property="id" column="id"></id>
+        <result property="name" column="name"></result>
+        <result property="partNo" column="partNo"></result>
+        <result property="description" column="description"></result>
+        <result property="price" column="price"></result>
+        <result property="serialNo" column="serialNo"></result>
+        <result property="numberInStock" column="numberInStock"></result>
+
+    </resultMap>
+
+
+    <sql id="params">
+        id, name, description, price, partNo, serialNo, numberInStock
+    </sql>
+
+    <select id="loadItemById" parameterType="java.lang.Integer" resultMap="my_eshop">
+        SELECT <include refid="params"/> FROM ITEM WHERE id = #{id};
+    </select>
+
+    <delete id="deleteAllOutOfStockItems">
+       delete from ITEM where numberInStock = <![CDATA[0]]>
+    </delete>
+
+    <select id="loadAllAvailableItems"  resultMap="my_eshop">
+        SELECT * FROM ITEM;
+    </select>
+
+    <insert id="saveItem" parameterType="Item" statementType="PREPARED" useGeneratedKeys="true" keyProperty="id" >
+        INSERT INTO my_eshop.ITEM (name, partNo, description,price)
+        VALUES ("Kecka","123","toto je popis",10.20)
+    </insert>
+
+    <update id = "updatePrice" parameterType = "Item">
+        UPDATE ITEM SET price = #{price} WHERE ID = #{id};
+    </update>
+
+
+</mapper>

@@ -10,7 +10,7 @@ public interface GoodsMethods {
      * @param id - id of the item which we want to load
      * @return
      */
-    Item loadItemById(Integer id) throws SQLException;
+    Item loadItemById(Integer id);
 
     /**
      * This method deletes all items that are not in stock
