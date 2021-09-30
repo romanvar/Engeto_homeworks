@@ -3,7 +3,7 @@ package com.engeto.pokusy;
 import java.math.BigDecimal;
 
 public class Item {
-    private Integer id;
+    private Integer id;com
 
     private String partNo;
 
