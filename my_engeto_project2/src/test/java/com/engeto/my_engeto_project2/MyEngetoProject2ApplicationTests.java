@@ -1,10 +1,10 @@
-package com.engeto.projekt2;
+package com.engeto.my_engeto_project2;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class Projekt2ApplicationTests {
+class MyEngetoProject2ApplicationTests {
 
 	@Test
 	void contextLoads() {

@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.engeto</groupId>
-	<artifactId>projekt2</artifactId>
+	<artifactId>my_engeto_project2</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>projekt2</name>
+	<name>my_engeto_project2</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
@@ -31,7 +31,10 @@
 
 	<build>
 		<plugins>
-
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
 		</plugins>
 	</build>
 
