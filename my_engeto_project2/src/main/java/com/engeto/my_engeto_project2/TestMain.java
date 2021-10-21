@@ -18,11 +18,15 @@ public class TestMain {
     public static void main(String[] args) throws IOException, InterruptedException {
         TestMain testMain   = new TestMain();
        String body =  testMain.callApi();
-       VatResponse vr =  testMain.mapToObject(body);
+//       VatResponse vr =
+          VatResponse vatResponse =      testMain.mapToObject(body);
+        System.out.println(vatResponse.getRates().toString());
 
+//        System.out.println("last updated: "+vatResponse.getLastUpdated());
+//        System.out.println(vr);
 
-        System.out.println("last updated: "+vr.getLastUpdated());
-        System.out.println(vr);
+        System.out.println("ahoj");
+
 
     }
 
@@ -40,7 +44,7 @@ public class TestMain {
         ObjectMapper objectMapper =new ObjectMapper();
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         VatResponse vatResponse = objectMapper.readValue(body,VatResponse.class);
-        System.out.println("Rates count: "+vatResponse.getRates().size());
+//        System.out.println("Rates count: "+vatResponse.getRates().size());
         return vatResponse;
 
     }

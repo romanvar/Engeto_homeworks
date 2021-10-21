@@ -2,8 +2,9 @@ package com.engeto.my_engeto_project2;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.Collections;
 import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class VatResponse {
     @JsonProperty(value = "last_updated")
@@ -27,11 +28,15 @@ public class VatResponse {
         this.disclaimer = disclaimer;
     }
 
-    public Map<String, CountryVat> getRates() {
-        return rates;
-    }
+   public Map<String, CountryVat> getRates() {
+     return rates;
+   }
 
     public void setRates(Map<String, CountryVat> rates) {
         this.rates = rates;
+    }
+
+    public void sortAscending() {
+//        Collections.sort(rates,Collections.reverseOrder());
     }
 }
