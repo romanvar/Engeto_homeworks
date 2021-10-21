@@ -18,8 +18,12 @@ public class TestMain {
     public static void main(String[] args) throws IOException, InterruptedException {
         TestMain testMain   = new TestMain();
        String body =  testMain.callApi();
-       testMain.mapToObject(body);
+       VatResponse vr =  testMain.mapToObject(body);
         System.out.println("ahoj");
+        //vr.getLastUpdated();
+        System.out.println("last updated: "+vr.getLastUpdated());
+        System.out.println(vr);
+
     }
 
     public String callApi() throws IOException, InterruptedException {
