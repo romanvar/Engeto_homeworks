@@ -1,5 +1,7 @@
 package com.engeto.my_engeto_project2;
 
+import java.util.Comparator;
+
 public class CountryVat implements Comparable<CountryVat>{
     String country;
     Double standard_rate;
