@@ -19,8 +19,8 @@ public class TestMain {
         TestMain testMain   = new TestMain();
        String body =  testMain.callApi();
        VatResponse vr =  testMain.mapToObject(body);
-        System.out.println("ahoj");
-        //vr.getLastUpdated();
+
+
         System.out.println("last updated: "+vr.getLastUpdated());
         System.out.println(vr);
 
