@@ -11,6 +11,9 @@ import java.net.http.HttpHeaders;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
 public class TestMain {
@@ -18,14 +21,18 @@ public class TestMain {
     public static void main(String[] args) throws IOException, InterruptedException {
         TestMain testMain   = new TestMain();
        String body =  testMain.callApi();
-//       VatResponse vr =
-          VatResponse vatResponse =      testMain.mapToObject(body);
-        System.out.println(vatResponse.getRates().toString());
 
-//        System.out.println("last updated: "+vatResponse.getLastUpdated());
-//        System.out.println(vr);
+          VatResponse vatResponse =      testMain.mapToObject(body);
+
+      System.out.println("last updated: "+vatResponse.getLastUpdated());
+
 
         System.out.println("ahoj");
+        List<CountryVat> list = new ArrayList<>(vatResponse.getRates().values());
+        Collections.sort(list);
+        for(CountryVat countryVat : list){
+            System.out.println(countryVat.getStandard_rate());
+        }
 
 
     }
@@ -34,8 +41,8 @@ public class TestMain {
         HttpClient httpClient = HttpClient.newBuilder().build();
         HttpRequest httpRequest = HttpRequest.newBuilder().uri(URI.create("https://euvatrates.com/rates.json")).GET().build();
        HttpResponse<String> httResponse = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
-        System.out.println("Status Code: "+httResponse.statusCode());
-        System.out.println("Body : "+httResponse.body());
+//        System.out.println("Status Code: "+httResponse.statusCode());
+//        System.out.println("Body : "+httResponse.body());
         return httResponse.body();
 
 
