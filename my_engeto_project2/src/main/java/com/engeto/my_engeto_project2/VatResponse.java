@@ -37,6 +37,7 @@ public class VatResponse {
     }
 
     public void sortAscending() {
-//        Collections.sort(rates,Collections.reverseOrder());
+        Collections.sort(rates,Collections.sort(rates));
+//        Collections.sort(rates,super);
     }
 }
