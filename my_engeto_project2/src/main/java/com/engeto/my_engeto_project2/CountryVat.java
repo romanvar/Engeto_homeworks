@@ -2,8 +2,8 @@ package com.engeto.my_engeto_project2;
 
 public class CountryVat {
     String country;
-    Object standard_rate;
-    Object reduced_rate;
+    Double standard_rate;
+
 
     public String getCountry() {
         return country;
@@ -13,19 +13,13 @@ public class CountryVat {
         this.country = country;
     }
 
-    public Object getStandard_rate() {
+    public Double getStandard_rate() {
         return standard_rate;
     }
 
-    public void setStandard_rate(Object standard_rate) {
+    public void setStandard_rate(Double standard_rate) {
         this.standard_rate = standard_rate;
     }
 
-    public Object getReduced_rate() {
-        return reduced_rate;
-    }
 
-    public void setReduced_rate(Object reduced_rate) {
-        this.reduced_rate = reduced_rate;
-    }
 }
