@@ -20,11 +20,11 @@ public class TestMain {
 
     public static void main(String[] args) throws IOException, InterruptedException {
         TestMain testMain   = new TestMain();
-        String body =  testMain.callApi();
+       String body =  testMain.callApi();
 
-        VatResponse vatResponse =      testMain.mapToObject(body);
+          VatResponse vatResponse =      testMain.mapToObject(body);
 
-        System.out.println("last updated: "+vatResponse.getLastUpdated());
+      System.out.println("last updated: "+vatResponse.getLastUpdated());
 
 
         System.out.println("ahoj");
@@ -40,7 +40,7 @@ public class TestMain {
     public String callApi() throws IOException, InterruptedException {
         HttpClient httpClient = HttpClient.newBuilder().build();
         HttpRequest httpRequest = HttpRequest.newBuilder().uri(URI.create("https://euvatrates.com/rates.json")).GET().build();
-        HttpResponse<String> httResponse = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+       HttpResponse<String> httResponse = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
 //        System.out.println("Status Code: "+httResponse.statusCode());
 //        System.out.println("Body : "+httResponse.body());
         return httResponse.body();
@@ -50,8 +50,9 @@ public class TestMain {
     public VatResponse mapToObject(String body) throws JsonProcessingException {
         ObjectMapper objectMapper =new ObjectMapper();
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-        return objectMapper.readValue(body,VatResponse.class);
+        VatResponse vatResponse = objectMapper.readValue(body,VatResponse.class);
 //        System.out.println("Rates count: "+vatResponse.getRates().size());
-//        return response2;
+        return vatResponse;
 
-    }}
+    }
+}
