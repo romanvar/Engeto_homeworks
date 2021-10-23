@@ -37,6 +37,7 @@ public class MainController {
     public List<CountryVat> getString() {
         return list;
 
+
     }
     @GetMapping(path = "/getcz")
     public CountryVat getCz(){
