@@ -24,7 +24,7 @@ public class TestMain {
     public static void main(String[] args) throws IOException, InterruptedException {
         TestMain testMain   = new TestMain();
         String body =  testMain.callApi();
-
+//        System.out.println(body);
         VatResponse vatResponse =      testMain.mapToObject(body);
         List<CountryVat> list = new ArrayList<>(vatResponse.getRates().values());
 //        System.out.println("last updated: "+vatResponse.getLastUpdated());
@@ -46,6 +46,9 @@ public class TestMain {
            printItem(i-1,list);
         }
         SearchTaxRates.searchLowerThan(list);
+
+        SearchTaxRates.searchByCountryCode(vatResponse.getRates());
+
 
     }
 
