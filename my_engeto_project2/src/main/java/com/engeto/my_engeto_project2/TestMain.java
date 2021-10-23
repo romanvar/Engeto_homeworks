@@ -27,17 +27,14 @@ public class TestMain {
 
         VatResponse vatResponse =      testMain.mapToObject(body);
         List<CountryVat> list = new ArrayList<>(vatResponse.getRates().values());
+//        System.out.println("last updated: "+vatResponse.getLastUpdated());
 
-        System.out.println("last updated: "+vatResponse.getLastUpdated());
-
-
-        System.out.println("ahoj");
 
         Collections.sort(list);
         for(CountryVat countryVat : list){
-            System.out.println(countryVat.getStandard_rate());
+//            System.out.println(countryVat.getStandard_rate());
         }
-        System.out.println("delka seznamu: "+list.size());
+//        System.out.println("delka seznamu: "+list.size());
         System.out.println("\nList of "+ testMain.ITEMS_DISPLAYED+" lowest standard tax rates:");
         for (int i= 0; i< testMain.ITEMS_DISPLAYED; i++){
 
@@ -48,11 +45,11 @@ public class TestMain {
 
            printItem(i-1,list);
         }
-
+        SearchTaxRates.searchLowerThan(list);
 
     }
 
-    private static void printItem(int i,List<CountryVat> list ) {
+    public static void printItem(int i,List<CountryVat> list ) {
         CountryVat c= list.get(i);
         System.out.print("Country = "+c.getCountry());
         System.out.println(" Standard rate = "+c.getStandard_rate());
@@ -63,7 +60,7 @@ public class TestMain {
         HttpRequest httpRequest = HttpRequest.newBuilder().uri(URI.create("https://euvatrates.com/rates.json")).GET().build();
         HttpResponse<String> httResponse = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
 
-        System.out.println("Body : "+httResponse.body());
+//        System.out.println("Body : "+httResponse.body());
         return httResponse.body();
 
 
