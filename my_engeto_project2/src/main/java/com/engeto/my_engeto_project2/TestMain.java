@@ -18,32 +18,32 @@ import java.util.Optional;
 
 public class TestMain {
 
-    private final int ITEMS_DISPLAYED =3;
+    private final int ITEMS_DISPLAYED = 3;
 
 
     public static void main(String[] args) throws IOException, InterruptedException {
-        TestMain testMain   = new TestMain();
-        String body =  testMain.callApi();
+        TestMain testMain = new TestMain();
+        String body = testMain.callApi();
 //        System.out.println(body);
-        VatResponse vatResponse =      testMain.mapToObject(body);
+        VatResponse vatResponse = testMain.mapToObject(body);
         List<CountryVat> list = new ArrayList<>(vatResponse.getRates().values());
 //        System.out.println("last updated: "+vatResponse.getLastUpdated());
 
 
         Collections.sort(list);
-        for(CountryVat countryVat : list){
+        for (CountryVat countryVat : list) {
 //            System.out.println(countryVat.getStandard_rate());
         }
 //        System.out.println("delka seznamu: "+list.size());
-        System.out.println("\nList of "+ testMain.ITEMS_DISPLAYED+" lowest standard tax rates:");
-        for (int i= 0; i< testMain.ITEMS_DISPLAYED; i++){
+        System.out.println("\nList of " + testMain.ITEMS_DISPLAYED + " lowest standard tax rates:");
+        for (int i = 0; i < testMain.ITEMS_DISPLAYED; i++) {
 
-           printItem(i,list);
+            printItem(i, list);
         }
-        System.out.println("\nList of "+ testMain.ITEMS_DISPLAYED+" highest standard tax rates:");
-        for (int i = list.size(); i > (list.size()-testMain.ITEMS_DISPLAYED); i--){
+        System.out.println("\nList of " + testMain.ITEMS_DISPLAYED + " highest standard tax rates:");
+        for (int i = list.size(); i > (list.size() - testMain.ITEMS_DISPLAYED); i--) {
 
-           printItem(i-1,list);
+            printItem(i - 1, list);
         }
         SearchTaxRates.searchLowerThan(list);
 
@@ -52,10 +52,10 @@ public class TestMain {
 
     }
 
-    public static void printItem(int i,List<CountryVat> list ) {
-        CountryVat c= list.get(i);
-        System.out.print("Country = "+c.getCountry());
-        System.out.println(" Standard rate = "+c.getStandard_rate());
+    public static void printItem(int i, List<CountryVat> list) {
+        CountryVat c = list.get(i);
+        System.out.print("Country = " + c.getCountry());
+        System.out.println(" Standard rate = " + c.getStandard_rate());
     }
 
     public String callApi() throws IOException, InterruptedException {
@@ -68,10 +68,12 @@ public class TestMain {
 
 
     }
+
     public VatResponse mapToObject(String body) throws JsonProcessingException {
-        ObjectMapper objectMapper =new ObjectMapper();
+        ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-        return objectMapper.readValue(body,VatResponse.class);
+        return objectMapper.readValue(body, VatResponse.class);
 
 
-    }}
+    }
+}

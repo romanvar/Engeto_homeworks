@@ -39,9 +39,10 @@ public class MainController {
 
 
     }
+
     @GetMapping(path = "/getcz")
-    public CountryVat getCz(){
-        CountryVat c =vatResponse.getRates().get("CZ");
+    public CountryVat getCz() {
+        CountryVat c = vatResponse.getRates().get("CZ");
         return c;
     }
 

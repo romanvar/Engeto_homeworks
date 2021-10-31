@@ -28,15 +28,13 @@ public class VatResponse {
         this.disclaimer = disclaimer;
     }
 
-   public Map<String, CountryVat> getRates() {
-     return rates;
-   }
+    public Map<String, CountryVat> getRates() {
+        return rates;
+    }
 
     public void setRates(Map<String, CountryVat> rates) {
         this.rates = rates;
     }
-
-
 
 
 }
